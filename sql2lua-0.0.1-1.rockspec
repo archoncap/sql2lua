@@ -5,11 +5,7 @@ source = {
 }
 description = {
 	summary = "Generate lua functions from SQL queries",
-	detailed = [[
-       This is an example for the LuaRocks tutorial.
-       Here we would put a detailed, typically
-       paragraph-long description.
-    ]],
+	detailed = [[]],
 	homepage = "https://github.com/crowl/sql2lua",
 	license = "MIT/X11"
 }
@@ -21,7 +17,7 @@ dependencies = {
 build = {
 	type = "builtin",
 	modules = {
-		sql2lua = "src/sql2lua.lua",
+		["sql2lua"] = "src/sql2lua.lua",
 		["sql2lua.parser"] = "src/sql2lua/parser.lua"
 	}
 }
