@@ -1,5 +1,5 @@
 local lpeg = require "lpeg"
-local concat = table.concat
+
 local P, S, R, V = lpeg.P, lpeg.S, lpeg.R, lpeg.V
 local C, Cg, Cf, Cc = lpeg.C, lpeg.Cg, lpeg.Cf, lpeg.Cc
 
