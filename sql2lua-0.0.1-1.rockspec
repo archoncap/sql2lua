@@ -17,7 +17,6 @@ dependencies = {
 build = {
 	type = "builtin",
 	modules = {
-		["sql2lua"] = "src/sql2lua.lua",
-		["sql2lua.parser"] = "src/sql2lua/parser.lua"
+		["sql2lua"] = "src/sql2lua.lua"
 	}
 }
