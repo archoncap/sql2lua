@@ -56,10 +56,14 @@ local queries_parser = lpeg.P{
 	line      = space^-1 * -comment_marker * (lpeg.C(line) * space^-1)^0 * newline
 }
 
-return function (str)
+local _M = {}
+
+function _M.parse (str)
 	local result = queries_parser:match(str)
-  if not result then
-    return nil, error("invalid SQL input")
-  end
-  return result
+	if not result then
+		return nil, error("invalid SQL input")
+	end
+	return result
 end
+
+return _M
