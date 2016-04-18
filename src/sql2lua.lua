@@ -1,11 +1,13 @@
-local parser = require "sql2lua.parser"
-
-local table_concat = table.concat
-local table_insert = table.insert
+-- sql2lua: Generate Lua functions from SQL queries.
+-- Copyright 2016 crowl <crowl@mm.st>
+-- MIT Licensed.
 
 local queryfile = assert(io.open(arg[1], "r"))
 local queryfile_content = queryfile:read("*all")
+
 queryfile:close()
+
+local parser = require "sql2lua.parser"
 
 local queries = assert(parser(queryfile_content))
 
@@ -14,20 +16,20 @@ local env = {
 	params = function (self)
 		local params = {}
 		for _, v in ipairs(self.parts) do
-			if type(v) == "table" then table_insert(params, v.param) end
+			if type(v) == "table" then table.insert(params, v.param) end
 		end
-		return table_concat(params, ", ")
+		return table.concat(params, ", ")
 	end,
 	body = function (self)
 		local statement = {}
 		for _, v in ipairs (self.parts) do
 			if type(v) == "table" then
-				table_insert(statement, "escape(" .. v.param .. ")")
+				table.insert(statement, "escape(" .. v.param .. ")")
 			else
-				table_insert(statement, "\"" .. v .. "\"")
+				table.insert(statement, "\"" .. v .. "\"")
 			end
 		end
-		return table_concat(statement, " ..\n\t\t")
+		return table.concat(statement, " ..\n\t\t")
 	end
 }
 
