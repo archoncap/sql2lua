@@ -65,17 +65,16 @@ local function template_env (queries)
 	return {
 		queries = queries,
 		params = function (self)
-			local params = {}
 			for _, v in ipairs(self.parts) do
-				if type(v) == "table" then table.insert(params, v.param) end
+				if type(v) == "table" then return "params" end
 			end
-			return table.concat(params, ", ")
+			return nil
 		end,
 		body = function (self)
 			local statement = {}
 			for _, v in ipairs (self.parts) do
 				if type(v) == "table" then
-					table.insert(statement, "escape(" .. v.param .. ")")
+					table.insert(statement, "escape(params." .. v.param .. ")")
 				else
 					table.insert(statement, "\"" .. v .. "\"")
 				end
