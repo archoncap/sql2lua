@@ -1,7 +1,7 @@
-package = "sqlua"
+package = "sql2lua"
 version = "0.0.1-1"
 source = {
-	url = "git://github.com/crowl/sqlua"
+	url = "git://github.com/crowl/sql2lua"
 }
 description = {
 	summary = "Generate lua functions from SQL queries",
@@ -10,7 +10,7 @@ description = {
        Here we would put a detailed, typically
        paragraph-long description.
     ]],
-	homepage = "https://github.com/crowl/sqlua",
+	homepage = "https://github.com/crowl/sql2lua",
 	license = "MIT/X11"
 }
 dependencies = {
@@ -21,7 +21,7 @@ dependencies = {
 build = {
 	type = "builtin",
 	modules = {
-		sqlua = "src/sqlua.lua",
-		["sqlua.parser"] = "src/sqlua/parser.lua"
+		sql2lua = "src/sql2lua.lua",
+		["sql2lua.parser"] = "src/sql2lua/parser.lua"
 	}
 }
