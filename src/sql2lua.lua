@@ -1,5 +1,5 @@
-local lustache = require "lustache"
 local parser = require "sql2lua.parser"
+
 local table_concat = table.concat
 local table_insert = table.insert
 
@@ -60,5 +60,7 @@ end
 {{/queries}}
 return _M
 ]]
+
+local lustache = require "lustache"
 
 io.stdout:write(lustache:render(template, env))
