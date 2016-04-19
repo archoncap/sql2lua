@@ -1,7 +1,3 @@
--- sql2lua: Generate Lua functions from SQL queries.
--- Copyright 2016 crowl <crowl@mm.st>
--- MIT Licensed.
-
 local lpeg = require "lpeg"
 local lustache = require "lustache"
 
@@ -113,7 +109,7 @@ return _M
 ]]
 
 return function (sql)
-	local queries = assert(queries_parser:match(sql))
+	local queries = queries_parser:match(sql)
 	if not queries then
 		return nil, error("invalid SQL input")
 	end
