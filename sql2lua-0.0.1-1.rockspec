@@ -1,8 +1,8 @@
 package = "sql2lua"
-version = "0.0.1-1"
+version = "0.0.2-1"
 source = {
 	url = "git://github.com/crowl/sql2lua",
-	tag = "v0.0.1"
+	tag = "v0.0.2"
 }
 description = {
 	summary = "Generate lua functions from SQL queries",
